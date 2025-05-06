@@ -1,0 +1,42 @@
+footer {
+    background-color: #343a40; /* Dark background */
+    color: #ffffff; /* White text */
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+  }
+  
+  footer .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  footer p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  footer a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+  }
+  
+  footer a:hover {
+    color: #0dcaf0; /* Light blue on hover */
+  }
+  
+  footer .mt-2 {
+    margin-top: 0.75rem;
+  }
+  
+  footer .me-3,
+  footer .ms-3,
+  footer .me-2,
+  footer .mx-2,
+  footer .ms-2 {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  
