@@ -1,0 +1,67 @@
+<h3 class="text-center">Let's Learn Data Binding</h3>
+
+<div class="border p-2 m-2">
+    <div>User Name is: {{userName}}</div>
+    <div>User Name is: <span [innerHTML]="userName"></span></div>
+
+    <img src="{{img_url}}" alt="" width="250" height="300" />
+    <img [src]="img_url" alt="" width="250" height="300" class="mx-2" />
+    <img bind-src="img_url" alt="" width="250" height="300" />
+    <br />
+
+    <div class="mt-2">1-way : <input type="text" value="{{userName}}" /></div>
+    <div>1-way : <input type="text" [value]="userName" [tabindex]="1" /></div>
+    <div>1-way : <input type="text" bind-value="userName" [tabindex]="3" /></div>
+    <div>2-way : <input type="text" [(ngModel)]="userName" [tabindex]="2" /></div>
+    <div>2-way : <input type="text" bindon-ngModel="userName" /></div>
+
+    <div>
+        <button class="btn btn-primary" disabled="{{flag}}">Click Me</button>
+        <button class="btn btn-primary mx-2" [disabled]="flag">Click Me</button>
+        <button class="btn btn-primary" bind-disabled="flag">Click Me</button>
+    </div>
+
+    <div class="m-2">
+        <button class="btn btn-success" (click)="f1()">Click me</button>
+        <button class="btn btn-success mx-2" on-click="f1()">Click me</button>
+    </div>
+
+    <table>
+        <tr>
+            <th>Month</th>
+            <th>Savings</th>
+        </tr>
+        <tr>
+            <td>January</td>
+            <td>$100</td>
+        </tr>
+        <tr>
+            <td>February</td>
+            <td>$80</td>
+        </tr>
+        <tr>
+            <!-- <td [attr.colspan]="myColSpanVal">Sum: $180</td> -->
+            <td [colSpan]="myColSpanVal">Sum: $180</td>
+        </tr>
+    </table>
+
+    <div class="p-2 m-2 border">
+        <div>Addition Using 2-way binding</div>
+        <input [(ngModel)]="num1" />
+        <input [(ngModel)]="num2" />
+        <div>Addition of {{num1}} and {{num2}} is {{+num1 + +num2}}</div>
+    </div>
+
+    <div class="p-2 m-2 border">
+        <div>Addition using template reference variable</div>
+        <input #mybox1 id="box1" />
+        <input ref-mybox2 id="box2" />
+        <button class="btn btn-primary" (click)="addition(mybox1.value , mybox2.value)">Add</button>
+        <div>Addition result is {{addResult}}</div>
+    </div>
+    <div class="p-2 m-2 border">
+        <div>Assignment-1 (Show/Hide Paragraph)</div>
+        <h1>Helloooooooooooooooooooooooooooooooo</h1>
+        <button>SHOW/HIDE</button>
+    </div>
+</div>

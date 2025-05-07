@@ -11,8 +11,8 @@ import { FooterComponent } from './components/footer/footer.component';
   standalone: true,
   imports: [
     NavbarComponent,
-    CategoriesComponent,
-    CarouselComponent,
+    // CategoriesComponent,
+    // CarouselComponent,
     BodyComponent,
     FooterComponent
   ],
