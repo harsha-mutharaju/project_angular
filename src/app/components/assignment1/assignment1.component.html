@@ -1,0 +1,82 @@
+<p>assignment1 works!</p>
+
+<!-- Assignments:
+1. Have a paragraph & a toggle button, on click of the button control the visibility(Show/Hide) of the paragraph
+2. Create a text-area with maxLength=100, as the user keeps typing display updated Remaining characters.
+3. Create dropdown with state names, when user changes dropdown value, print the selected dropdown value in a paragraph
+4. have 2 inputBoxes, and a dropdown(+,-,*,/) and perform arithmetic operations
+5. create a input box, toggle the type of that input box to (text/password)
+6. create a counter example with 3 controls(increment,decrement,reset)
+7. Have a toggle button and control Dark/Light theme of a page. -->
+
+<!-- Assignment -->
+<!-- 1: Have a paragraph & a toggle button, on click of the button control the visibility(Show/Hide) of the paragraph -->
+<h6>1. Toggle Paragraph Visibility</h6>
+<button class="button" (click)="toggleParagraph()">Show/Hide</button>
+@if (paragraphVisibility) {
+  <p>Have a paragraph & a toggle button, on click of the button control the visibility(Show/Hide) of the paragraph</p>
+}
+
+<hr/>
+
+<!-- 2: Create a text-area with maxLength=100, as the user keeps typing display updated Remaining characters. -->
+<h6>2. Textarea with remaining characters</h6>
+<textarea [(ngModel)]="textInput" [maxLength]="maxLength"></textarea>
+<p>Remaining Characters: {{ maxLength - textInput.length }}</p>
+
+<hr/>
+
+<!-- Assignment 3: Create dropdown with state names, when user changes dropdown value, print the selected dropdown value in a paragraph -->
+<h6>3. Dropdown State Selector</h6>
+<select [(ngModel)]="selectedState">
+  <option>Select a State</option>
+  @for (state of states; track state) {
+    <option>{{ state }}</option>
+  }
+</select>
+@if (selectedState !== 'Select a State') {
+  <p>Selected State: {{ selectedState }}</p>
+}
+
+<hr/>
+
+<!-- Assignment 4: Have 2 inputBoxes, and a dropdown(+,-,*,/) and perform arithmetic operations -->
+<h6>4. Arithmetic Calculator</h6>
+<input type="number" [(ngModel)]="num1">
+<select [(ngModel)]="operator">
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="*">*</option>
+  <option value="/">/</option>
+</select>
+<input type="number" [(ngModel)]="num2">
+<button (click)="calculate()">Calculate</button>
+<button (click)="resetc()">Reset</button>
+<p>Result: {{ result }}</p>
+
+
+<hr/>
+
+<!-- Assignment 5: Create an input box, toggle the type of that input box to (text/password) -->
+<h6>5. Toggle Input Type (Password/Text)</h6>
+<input [type]="isPassword ? 'password' : 'text'">
+<button (click)="togglePassword()">Toggle Type</button>
+
+<hr/>
+
+<!-- Assignment 6: Create a counter example with 3 controls (increment, decrement, reset) -->
+<h6>6. Counter Example</h6>
+<p>Counter Value: {{ counter }}</p>
+<button (click)="increment()">Increment</button>
+<button (click)="decrement()">Decrement</button>
+<button (click)="reset()">Reset</button>
+
+<hr/>
+
+<!-- 7. Have a toggle button and control Dark/Light theme of a page.  -->
+<div [ngClass]="isDarkMode ? 'dark-theme' : 'light-theme'" class="container" >
+  <p>This is a sample paragraph.</p>
+  <button (click)="toggleTheme()">Toggle Theme</button>
+</div>
+
+

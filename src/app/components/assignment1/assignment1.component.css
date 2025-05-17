@@ -1,0 +1,32 @@
+/* General styling for the component */
+:host {
+  display: block;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h6 {
+  font-size: 18px;
+  margin:auto;
+  
+}
+
+button {
+  margin: auto auto;
+  font-size: 12px;
+}
+
+button:hover {
+  background-color: lightseagreen;
+}
+
+.dark-theme {
+  background-color: black;
+  color:white;
+  
+}
+
+.light-theme {
+  background-color: white;
+  color: black;
+}

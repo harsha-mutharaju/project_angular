@@ -1,6 +1,12 @@
+<style> 
+img{
+border:5px dashed green;
+
+}
+</style>
 <h3 class="text-center">Let's Learn Data Binding</h3>
 
-<div class="border p-2 m-2">
+<div class="border p-2 m-2" style="color: aqua">
     <div>User Name is: {{userName}}</div>
     <div>User Name is: <span [innerHTML]="userName"></span></div>
 
@@ -59,9 +65,5 @@
         <button class="btn btn-primary" (click)="addition(mybox1.value , mybox2.value)">Add</button>
         <div>Addition result is {{addResult}}</div>
     </div>
-    <div class="p-2 m-2 border">
-        <div>Assignment-1 (Show/Hide Paragraph)</div>
-        <h1>Helloooooooooooooooooooooooooooooooo</h1>
-        <button>SHOW/HIDE</button>
-    </div>
+    
 </div>

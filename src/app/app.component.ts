@@ -5,6 +5,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { BodyComponent } from './components/body/body.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { Assignment1Component } from "./components/assignment1/assignment1.component";
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,9 @@ import { FooterComponent } from './components/footer/footer.component';
     // CategoriesComponent,
     // CarouselComponent,
     BodyComponent,
-    FooterComponent
-  ],
+    FooterComponent,
+    Assignment1Component
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
