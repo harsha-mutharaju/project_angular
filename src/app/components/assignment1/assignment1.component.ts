@@ -3,11 +3,10 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; 
 
 @Component({
-  selector: 'app-assignment1',
-  standalone: true,
-  imports: [FormsModule , CommonModule],
-  templateUrl: './assignment1.component.html',
-  styleUrl: './assignment1.component.css'
+    selector: 'app-assignment1',
+    imports: [FormsModule, CommonModule],
+    templateUrl: './assignment1.component.html',
+    styleUrl: './assignment1.component.css'
 })
 export class Assignment1Component {
 

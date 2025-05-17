@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
-import { DatabindingComponent } from '../databinding/databinding.component';
-import { DirectivesComponent } from '../directives/directives.component';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { ProductsComponent } from '../products/products.component';
 
 @Component({
   selector: 'app-body',
-  standalone:true,
   imports: [
-    //DatabindingComponent
-    DirectivesComponent
+    ProductsComponent
   ],
   templateUrl: './body.component.html',
-  styleUrl: './body.component.css'
+  styleUrl: './body.component.css',
 })
 export class BodyComponent {
 
 }
+
+
+    // DatabindingComponent,
+    // DirectivesComponent
