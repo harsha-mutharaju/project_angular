@@ -1,4 +1,4 @@
-<h3 class="text-center">Let's Learn Directives</h3>
+<!-- <h3 class="text-center">Let's Learn Directives</h3>
 <hr />
 
 <div class="border p-2 m-2">
@@ -79,45 +79,76 @@
       <option>{{country}}</option>
     }
   </datalist>
-</div>
+</div> -->
 
-<div class="border p-2 m-2">
-  <h4>Employees Table</h4>
-<table>
-  <thead>
-    <tr>
-      <th>Serial number</th>
-      <th>Employee ID</th>
-      <th>Name</th>
-      <th>Salary</th>
-      <th>Gender</th>
-      <th>first</th>
-      <th>last</th>
-      <th>even</th>
-      <th>odd</th>
-    </tr>
-  </thead>
-  <tbody>
+<button class="btn btn-primary m-3" (click)="toggleView()">Click to switch between table and cards</button>
+
+@if(toggletc == true){
+  <div class="border p-2 m-2">
+    <h4>Employees Table</h4>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Serial number</th>
+          <th>Employee ID</th>
+          <th>Name</th>
+          <th>Salary</th>
+          <th>Gender</th>
+          <th>first</th>
+          <th>last</th>
+          <th>even</th>
+          <th>odd</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (emp of employees; track emp.eId) {
+          <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ emp.eId }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.sal }}</td>
+            <td>{{ emp.gender }}</td>
+            <td>{{ $first }}</td>
+            <td>{{ $last }}</td>
+            <td>{{ $even }}</td>
+            <td>{{ $odd }}</td>
+          </tr>
+        }
+        @empty {
+          <tr>
+            <td colspan="9" class="text-center">No employee records available.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}
+@else {
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 m-2">
     @for (emp of employees; track emp.eId) {
-      <tr>
-        <td>{{$index+1}}</td>
-        <td>{{ emp.eId }}</td>
-        <td>{{ emp.name }}</td>
-        <td>{{ emp.sal }}</td>
-        <td>{{ emp.gender }}</td>
-        <td>{{$first}}</td>
-        <td>{{$last}}</td>
-        <td>{{$even}}</td>
-        <td>{{$odd}}</td>
-      </tr>
+      <div class="col">
+        <div class="card h-100 border-primary">
+          <div class="card-header bg-primary text-white">
+            {{emp.name}}
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              <strong>Salary:</strong> {{ emp.sal }} <br />
+              <strong>Gender:</strong> {{ emp.gender }} <br />
+              <strong>First:</strong> {{ $first }} <br />
+              <strong>Last:</strong> {{ $last }} <br />
+              <strong>Even:</strong> {{ $even }} <br />
+              <strong>Odd:</strong> {{ $odd }}
+            </p>
+          </div>
+        </div>
+      </div>
     }
     @empty {
-    <tr>
-      <td colspan="4" style="text-align: center;">No employee records available.</td>
-    </tr>
-  }
-</tbody>
-</table>
-</div>
-
+      <div class="col">
+        <div class="alert alert-info text-center w-100">No employee records available.</div>
+      </div>
+    }
+  </div>
+}
 

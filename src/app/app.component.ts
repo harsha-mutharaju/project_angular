@@ -11,8 +11,8 @@ import { Assignment1Component } from "./components/assignment1/assignment1.compo
     selector: 'app-root',
     imports: [
         NavbarComponent,
-        // CategoriesComponent,
-        // CarouselComponent,
+        CategoriesComponent,
+        CarouselComponent,
         BodyComponent,
         FooterComponent,
         Assignment1Component
