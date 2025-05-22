@@ -1,0 +1,195 @@
+<!-- <h3 class="text-center">Lets learn pipes</h3>
+<hr/>
+
+<div class ="border p-2 m-2">
+
+  <div>lowercase, uppercase, Titlecase pipe</div>
+  <div>UserName: {{userName}}</div>
+  <div>UserName Uppercase: {{userName | uppercase}}</div>
+  <div>UserName Lowercase: {{userName | lowercase}}</div>
+
+  <div>salary : {{salary}}</div>
+  <div>salary currency: {{salary | currency : 'USD' : 'code'}}</div>
+  <div>salary currency in INR: {{salary | currency : 'INR'}}</div>
+  <div>salary currency in EUROS: {{salary | currency : '&euro;'}}</div>
+
+</div>
+
+<div class ="border p-2 m-2">
+    <div > Dates pipe</div>
+    <div> {{today}}</div>
+    <div>{{today | date}}</div>
+    <div>{{today | date : 'shortDate'}}</div>
+    <div>{{today | date : 'mediumDate'}}</div>
+    <div>{{today | date : 'longDate'}}</div>
+    <div>{{today | date : 'fullDate'}}</div>
+    <div>{{today | date : 'shortTime'}}</div>
+    <div>{{today | date : 'mediumTime'}}</div>
+    <div>{{today | date : 'longTime'}}</div>
+    <div>{{today | date : 'fullTime'}}</div>
+    <div>{{today | date : 'dd/mm/yyyy'}}</div>
+</div>
+
+<div class ="border p-2 m-2">
+    <div > Numebr and percent pipe</div>
+     min 3 before decimal and min 2 , max 5 after decimal
+     <div> {{12.1111222233333 | number : '3.2-5'}}</div>   
+    <div> {{12.1 | number : '3.2-5'}}</div>  
+    <div> {{0.5 | number : '3.2-5'}}</div>  
+    <div> {{0.5 | percent}}</div>  
+    <div> {{0.05 | percent}}</div>  
+    
+</div>
+
+<div class ="border p-2 m-2">
+    <div > Key value pipe</div>
+
+    @for (item of user | keyvalue; track $index) {
+        <div>{{item.key}}----{{item.value}}</div>
+    }
+    
+</div>
+
+
+<div class ="border p-2 m-2">
+    <div > JSON pipe</div>
+
+  <div>{{user}}</div>
+  <div>{{user | json}}</div>
+    
+</div>
+
+<div class ="border p-2 m-2">
+    <div > Slice pipe</div>
+
+  <div>{{numberArray}}</div>
+  <div>{{numberArray | slice:2}}</div>
+  <div>{{numberArray | slice:0:-1}}</div>
+  <div>{{numberArray | slice:0:-2}}</div>
+    
+</div>
+
+<div class ="border p-2 m-2">
+    <div > Custom pipe - remaining characters</div>
+    <textarea [(ngModel)]="msg" maxlength="100"></textarea>
+  <div>Remaining Chars: {{msg | remaining : 100}}</div>
+
+  <textarea [(ngModel)]="msg2" maxlength="200"></textarea>
+  <div>Remaining Chars: {{msg2 | remaining : 200}}</div>
+</div>
+
+<div class="border border-5 p-2 m-2 rounded-2">
+  <div>Ordinal (Custom Pipe)</div>
+  <input type="number" [(ngModel)]="num" />
+  <div>Num value: {{num}}</div>
+   <div>Num value: {{num | ordinal}}</div>
+</div>
+
+<div class="border border-5 p-2 m-2 rounded-2">
+  <div>Need of Impure Pipe</div>
+
+  arr without sort:
+  @for (item of arr; track $index) {
+  <b>{{item}} &nbsp;</b>
+  }
+
+  <div>
+    arr2 with sort:
+    @for (item of arr2 | mysort; track $index) {
+    <b>{{item}} &nbsp;</b>
+    }
+
+    <div>
+      <input type="number" #newEle />
+      <button class="btn btn-primary" (click)="arr2.push(+newEle.value)">Add</button>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="border border-5 p-2 m-2 rounded-2">
+
+  <h1> Pipes Assignment</h1>
+  <p>1. Create a custom pipe(ordinal) which takes a number as input and returns in ordinal format</p>
+  <p> input : 21,22,23,24  output : 21st, 22nd , 23rd, 24th</p>
+  <input type="number" [(ngModel)]="num" />
+<p>Ordinal: {{ num | cardinaltoordinal }}</p>
+
+
+<p>2. create a custom pipe(Roman) which takes a number as input and returns its equivalent roman value
+   input :  4    8     9   
+   output : IV  VIII   IX 
+</p>
+
+<input type="number" [(ngModel)]="num" />
+<p>Roman numeral: {{ num | roman }}</p>
+
+
+
+<p>3. create a custom pipe called 'age' which takes a date as input and returns the age in years.
+   input : 04-06-2020
+   output : 5 years old
+</p>
+
+<p>Providing date in dd-mm-yyyy format : 11-11-1999</p>
+<p>Age: {{ '11-11-1999' | age }}</p>
+
+<input type="date" [(ngModel)]="dob" />
+<p *ngIf="dob">Age: {{ dob | age }}</p>
+
+
+<p>4. declare an array of employee objects. display them in a table.
+   create a custom pipe 'Salutation' that will add 'mr. / miss.' before the employee name.
+</p>
+
+<h3 class="text-center">Employee List</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name (with Salutation)</th>
+      <th>Gender</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employees">
+      <td>{{ emp.name | gender : emp.gender }}</td>
+      <td>{{ emp.gender }}</td>
+      
+    </tr>
+  </tbody>
+</table>
+
+ 
+<p>5. declare an array of employee objects. display them in a table. 
+   add a search-box above the table. create a custom-pipe to filter/search employees data.</p>
+
+<input type="text" [(ngModel)]="searchText" placeholder="Search..." />
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>age</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employees | emp: searchText">
+      <td>{{emp.eId}}</td>
+      <td>{{ emp.name | gender : emp.gender }}</td>
+      <td>{{ emp.gender }}</td>
+      <td>{{emp.sal}}</td>
+      
+      
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+

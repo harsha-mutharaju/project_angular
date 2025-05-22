@@ -1,0 +1,9 @@
+Assignment
+=========
+1. create 1 EmployeeCRUD component - done
+2. display list of employees in a table(data comes from an array) - done
+3. user should be able to delete Employee (ask user confirmation) - done
+4. view the details of each employee in a modal (bootstrap Modal) - done
+5. add a new employee to the table (insert a new record to the array)
+   use SnackBar to display message ('EmployAdded Successfully' - message should be maintained in a constant file) - done
+6. use font-awesome to display any icons (star , delete, edit)

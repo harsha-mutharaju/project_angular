@@ -2,11 +2,14 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NumberonlyDirective } from '../../directives/numberonly.directive';
+import { HighlightDirective } from '../../directives/highlight.directive';
 
 @Component({
     selector: 'app-directives',
      standalone: true,
-    imports: [FormsModule, CommonModule],
+    imports: [FormsModule, CommonModule , NumberonlyDirective, HighlightDirective
+    ],
     templateUrl: './directives.component.html',
     styleUrl: './directives.component.css'
 })
@@ -37,5 +40,23 @@ toggleView(){
   trackById(index: number, emp: any): number {
     return emp.eId;
   }
+
+  myStyle1={
+    "color" : 'red',
+    "border" : "5px dotted green"
+  }
+
+  myStyle2={
+    "color" : 'green',
+    "border" : "5px dotted red"
+  }
+
+ myFunction() {
+  if (this.num % 2 == 0) {
+    return this.myStyle1;
+  } else {
+    return this.myStyle2;
+  }
+}
 
 }

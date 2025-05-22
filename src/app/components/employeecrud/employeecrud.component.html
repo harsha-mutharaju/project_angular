@@ -1,0 +1,64 @@
+<!-- Add Employee Form -->
+<div class="border p-3 m-2">
+  <h5>Add Employee</h5>
+  <input [(ngModel)]="newEmployee.eId" placeholder="ID" class="form-control mb-2" />
+  <input [(ngModel)]="newEmployee.name" placeholder="Name" class="form-control mb-2" />
+  <input [(ngModel)]="newEmployee.sal" placeholder="Salary" type="number" class="form-control mb-2" />
+  <select [(ngModel)]="newEmployee.gender" class="form-control mb-3">
+    <option value="">Select Gender</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select>
+  <button class="btn btn-success" (click)="addEmployee()">Add Employee</button>
+</div>
+
+<div class="border p-2 m-2">
+  <h4>Employees Table</h4>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Serial number</th>
+        <th>Employee ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Gender</th>
+        <th>Delete</th>
+        <th>View</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (emp of employees; track emp.eId) {
+        <tr>
+          <td>{{ $index + 1 }}</td>
+          <td>{{ emp.eId }}</td>
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.sal }}</td>
+          <td>{{ emp.gender }}</td>
+          <td><button class="btn btn-danger btn-sm" (click)="deleteEmployee(emp.eId)">Delete</button></td>
+          <td><button class="btn btn-info btn-sm" (click)="viewEmployee(emp)">View</button></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+
+<div class="modal fade" id="empModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Employee Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" *ngIf="selectedEmployee">
+        <p><strong>ID:</strong> {{ selectedEmployee.eId }}</p>
+        <p><strong>Name:</strong> {{ selectedEmployee.name }}</p>
+        <p><strong>Salary:</strong> ₹{{ selectedEmployee.sal }}</p>
+        <p><strong>Gender:</strong> {{ selectedEmployee.gender }}</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

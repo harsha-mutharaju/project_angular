@@ -79,7 +79,7 @@
       <option>{{country}}</option>
     }
   </datalist>
-</div> -->
+</div>
 
 <button class="btn btn-primary m-3" (click)="toggleView()">Click to switch between table and cards</button>
 
@@ -151,4 +151,41 @@
     }
   </div>
 }
+
+<div>
+<p [style.color]="num % 2 == 0 ? 'blue' : 'red'"> Add a style </p>
+<p [style.fontSize.px]='48'> Add style with unit </p>
+<p [style.background-color]=" num%2 ==0?'green':'blue' "> Add style conditionallys </p>
+<p [ngStyle]="num%2==0 ? myStyle1 : myStyle2"> NgStyle for multiple values </p>
+<p [ngStyle]="myFunction()"> NgStyle for multiple values </p>
+</div>
+
+
+<div class="border p-2 m-2">
+  <div>Lets understand ngClass</div>
+  <input type="number" [(ngModel)]="num" />
+  
+  <button [ngClass]="['btn', num % 2 == 0 ? 'btn-success' : 'btn-danger']">
+    Test Button
+  </button>
+</div>
+
+<div class="border p-2 m-2">
+  <div>Lets understand ng-container</div>
+  
+  <ng-container *ngFor="let num of [1,2,3,4,5]">
+    <div *ngIf="num % 2 == 0">
+      {{ num }} is Even
+    </div>
+  </ng-container>
+</div> -->
+
+
+<div class="border p-2 m-2">
+  <div>Lets understand numberonly directive</div>
+  <input numberonly placeholder="enter number & text to see the diff" />
+
+  
+  <h3 highlight> this is highlight directive</h3>
+
 

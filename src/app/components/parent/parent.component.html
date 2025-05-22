@@ -1,0 +1,17 @@
+<div class="container border border-5 p-2 m-2">
+    <div>I am parent</div>
+    <div> My own data : {{a}}</div>
+    <div>child component data from child1 = username : {{child1.username}}</div>
+    <div>child component address  child2 = {{address_parent}}</div>
+<div class="row">
+  <div class="col-sm-6 border border-5">
+    <app-child1 [a]="a" #child1></app-child1>
+    <!-- on page load , parent can assign template reference variable to child1 -->
+  </div>
+  <div class="col-sm-6 border border-5">
+    <app-child2 [child2_a]="a" [child2_userName]="child1.username" (addressEvent)="receiveDataFromChild($event)">
+       
+    </app-child2>
+  </div>
+</div>
+</div>

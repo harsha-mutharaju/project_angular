@@ -3,13 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4 offset-2">
-      <input
-        type="search"
-        [(ngModel)]="searchTerm"
-        (input)="searchProducts()"
-        placeholder="Search..."
-        class="form-control"
-      />
+      <input type="search" [(ngModel)]="searchTerm" (input)="searchProducts()" placeholder="Search" class="form-control"/>
     </div>
     <div class="col-sm-4 text-end">
       <button class="btn btn-primary" (click)="sortAsc()">Sort Asc</button>
@@ -27,7 +21,7 @@
             alt="Product Image"
             height="200px"
           />
-          <div class="card-body">
+          <div zoomin class="card-body">
             <h5 class="card-title">{{ product.category }}</h5>
             <p class="card-text">{{ product.id }}</p>
             <p class="card-text fw-bold">{{ product.title }}</p>
