@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import Snackbar from 'awesome-snackbar';
 import Swal from 'sweetalert2';
 import { Messages } from '../../constants/message.constants'; 
+import { EmployeetableComponent } from '../employeetable/employeetable.component';
+import { EmployeeaddComponent } from '../employeeadd/employeeadd.component';
 
 @Component({
   selector: 'app-employeecrud',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule , EmployeetableComponent , EmployeeaddComponent],
   templateUrl: './employeecrud.component.html',
   styleUrls: ['./employeecrud.component.css']
 })
@@ -24,9 +26,10 @@ export class EmployeecrudComponent {
   newEmployee = { eId: 0, name: '', sal: 0, gender: '' };
   selectedEmployee: any = null;
 
-  addEmployee() {
-  this.employees.push({ ...this.newEmployee });
-
+  addEmployee(emp: any) {
+    const eId = this.employees.length ? Math.max(...this.employees.map(e => e.eId)) + 1 : 101;
+    this.employees.push({ ...emp, eId });
+  
   new Snackbar(Messages.EMPLOYEE_ADDED, {
     position: 'top-center',
     theme: 'light',
@@ -41,7 +44,7 @@ export class EmployeecrudComponent {
 }
 
 
-  deleteEmployee(eId: number): void {
+  deleteEmployee(eId: number){
     Swal.fire({
       title: 'Are you sure?',
       text: 'Do you want to delete this employee?',
@@ -57,13 +60,13 @@ export class EmployeecrudComponent {
     });
   }
 
-  viewEmployee(emp: any) {
-    this.selectedEmployee = emp;
-    const modal = new (window as any).bootstrap.Modal(
-      document.getElementById('empModal')
-    );
-    modal.show();
-  }
+  // viewEmployee(emp: any) {
+  //   this.selectedEmployee = emp;
+  //   const modal = new (window as any).bootstrap.Modal(
+  //     document.getElementById('empModal')
+  //   );
+  //   modal.show();
+  // }
 }
 
 

@@ -1,0 +1,27 @@
+<div class="border p-3 m-2">
+  <h5>Employee List</h5>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Gender</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ emp.eId }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.sal }}</td>
+        <td>{{ emp.gender }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deleteEmployee(emp.eId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

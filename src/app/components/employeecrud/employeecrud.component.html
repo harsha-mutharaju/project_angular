@@ -1,5 +1,5 @@
 <!-- Add Employee Form -->
-<div class="border p-3 m-2">
+<!-- <div class="border p-3 m-2">
   <h5>Add Employee</h5>
   <input [(ngModel)]="newEmployee.eId" placeholder="ID" class="form-control mb-2" />
   <input [(ngModel)]="newEmployee.name" placeholder="Name" class="form-control mb-2" />
@@ -10,10 +10,10 @@
     <option value="female">Female</option>
   </select>
   <button class="btn btn-success" (click)="addEmployee()">Add Employee</button>
-</div>
+</div> -->
 
 <div class="border p-2 m-2">
-  <h4>Employees Table</h4>
+  <h4>Employees Table from Parent - EmployeeCRUD</h4>
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
@@ -22,8 +22,8 @@
         <th>Name</th>
         <th>Salary</th>
         <th>Gender</th>
-        <th>Delete</th>
-        <th>View</th>
+        <!-- <th>Delete</th>
+        <th>View</th> -->
       </tr>
     </thead>
     <tbody>
@@ -34,16 +34,25 @@
           <td>{{ emp.name }}</td>
           <td>{{ emp.sal }}</td>
           <td>{{ emp.gender }}</td>
-          <td><button class="btn btn-danger btn-sm" (click)="deleteEmployee(emp.eId)">Delete</button></td>
+          <!-- <td><button class="btn btn-danger btn-sm" (click)="deleteEmployee(emp.eId)">Delete</button></td>
           <td><button class="btn btn-info btn-sm" (click)="viewEmployee(emp)">View</button></td>
-        </tr>
+        </tr> -->
       }
     </tbody>
   </table>
 </div>
 
+<h3 class="text-center">Employee CRUD</h3>
 
-<div class="modal fade" id="empModal" tabindex="-1" aria-hidden="true">
+<app-employeeadd (onAdd)="addEmployee($event)"></app-employeeadd>
+
+<app-employeetable 
+  [employees]="employees" 
+  (onDelete)="deleteEmployee($event)">
+</app-employeetable>
+
+
+<!-- <div class="modal fade" id="empModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -61,4 +70,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
