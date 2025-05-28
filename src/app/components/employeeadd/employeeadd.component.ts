@@ -16,6 +16,6 @@ export class EmployeeaddComponent {
 
   submitForm() {
     this.onAdd.emit(this.newEmployee);
-    this.newEmployee = { name: '', sal: 0, gender: '' }; // Reset
+    this.newEmployee = { name: '', sal: 0, gender: '' };
   }
 }

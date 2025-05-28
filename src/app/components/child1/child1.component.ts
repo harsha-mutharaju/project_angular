@@ -5,10 +5,21 @@ import { Component} from '@angular/core';
   imports: [],
   templateUrl: './child1.component.html',
   styleUrl: './child1.component.css',
-  inputs:['a'],
+  inputs:['a','b'],
   
 })
 export class Child1Component {
 a:any;
+b:any;
 username:string='abc';
+ constructor() {
+    console.log("Child constructor")
+  }
+  ngOnChanges(changes:any) {
+    console.log('Child ngOnChanges');
+    console.log(changes)
+  }
+  ngOnInit() {
+    console.log('Child ngOnInit');
+  }
 }

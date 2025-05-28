@@ -1,0 +1,33 @@
+<div class="border p-2 m-2">
+  <h4>Assignment - Dealing Employee with Service Call</h4>
+
+  <div class="mb-2">
+    <label for="genderFilter">Filter by Gender:</label>
+    <select id="genderFilter" [(ngModel)]="selectedFilter" (change)="onFilterChange()">
+      <option value="all">All</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ emp.eId }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.sal }}</td>
+        <td>{{ emp.gender }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

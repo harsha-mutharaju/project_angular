@@ -27,7 +27,7 @@ export class EmployeecrudComponent {
   selectedEmployee: any = null;
 
   addEmployee(emp: any) {
-    const eId = this.employees.length ? Math.max(...this.employees.map(e => e.eId)) + 1 : 101;
+    const eId = this.employees.length ? Math.max(...this.employees.map(e => e.eId)) + 1 : 1;
     this.employees.push({ ...emp, eId });
   
   new Snackbar(Messages.EMPLOYEE_ADDED, {

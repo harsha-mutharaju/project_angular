@@ -10,12 +10,12 @@ import { Assignment1Component } from "./components/assignment1/assignment1.compo
 @Component({
     selector: 'app-root',
     imports: [
-        NavbarComponent,
-        CategoriesComponent,
-        CarouselComponent,
-        BodyComponent,
-        FooterComponent,
-        Assignment1Component
+        // NavbarComponent,
+        // CategoriesComponent,
+        // CarouselComponent,
+        BodyComponent
+        // FooterComponent,
+        // Assignment1Component
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css'

@@ -43,13 +43,8 @@
 </div>
 
 <h3 class="text-center">Employee CRUD</h3>
-
 <app-employeeadd (onAdd)="addEmployee($event)"></app-employeeadd>
-
-<app-employeetable 
-  [employees]="employees" 
-  (onDelete)="deleteEmployee($event)">
-</app-employeetable>
+<app-employeetable [employees]="employees" (onDelete)="deleteEmployee($event)"></app-employeetable>
 
 
 <!-- <div class="modal fade" id="empModal" tabindex="-1" aria-hidden="true">

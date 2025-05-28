@@ -1,0 +1,172 @@
+<h2 class="heading">
+  <fa-icon [icon]="faUser"></fa-icon> User Management
+</h2>
+
+<style>
+  .heading {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .user-form {
+    width: 400px;
+    margin: 0 auto 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+
+  .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .form-icon {
+    margin-right: 10px;
+    color: #3498db;
+    font-size: 20px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    flex: 1;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .primary-btn,
+  .cancel-btn,
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .primary-btn {
+    background-color: #2ecc71;
+    color: white;
+  }
+
+  .cancel-btn {
+    background-color: #e67e22;
+    color: white;
+  }
+
+  .edit-btn {
+    background-color: #3498db;
+    color: white;
+    margin-right: 5px;
+  }
+
+  .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+  }
+
+  .loading {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .user-table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+
+  .user-table th,
+  .user-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .user-table th {
+    background-color: #f1f1f1;
+    color: #333;
+  }
+
+  .user-table td button {
+    font-size: 14px;
+  }
+</style>
+
+<form (ngSubmit)="isUpdateMode ? updateUser() : addUser()" class="user-form">
+  <div class="form-group">
+    <fa-icon [icon]="faUser" class="form-icon"></fa-icon>
+    <input [(ngModel)]="userForm.name" name="name" type="text" required />
+  </div>
+
+  <div class="form-group">
+    <fa-icon [icon]="faEnvelope" class="form-icon"></fa-icon>
+    <input [(ngModel)]="userForm.email" name="email" type="email" required />
+  </div>
+
+  <div class="form-group">
+    <fa-icon [icon]="faPhone" class="form-icon"></fa-icon>
+    <input [(ngModel)]="userForm.phone" name="phone" type="tel" required />
+  </div>
+
+  <div class="button-group">
+    <button type="submit" class="primary-btn">
+      <fa-icon [icon]="isUpdateMode ? faEdit : faUser"></fa-icon>
+      {{ isUpdateMode ? 'Update' : 'Add' }} User
+    </button>
+    <button
+      type="button"
+      (click)="resetForm()"
+      *ngIf="isUpdateMode"
+      class="cancel-btn"
+    >
+      Cancel
+    </button>
+  </div>
+</form>
+
+<div *ngIf="isLoading" class="loading">Loading...</div>
+
+<table *ngIf="!isLoading" class="user-table">
+  <thead>
+    <tr>
+      <th><fa-icon [icon]="faUser"></fa-icon> Name</th>
+      <th><fa-icon [icon]="faEnvelope"></fa-icon> Email</th>
+      <th><fa-icon [icon]="faPhone"></fa-icon> Phone</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td>
+        <button (click)="editUser(user)" class="edit-btn" title="Edit">
+          <fa-icon [icon]="faEdit"></fa-icon>
+        </button>
+        <button (click)="deleteUser(user.id)" class="delete-btn" title="Delete">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -3,7 +3,7 @@
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
-        <th>#</th>
+        <th>SL.No</th>
         <th>ID</th>
         <th>Name</th>
         <th>Salary</th>
@@ -19,7 +19,7 @@
         <td>{{ emp.sal }}</td>
         <td>{{ emp.gender }}</td>
         <td>
-          <button class="btn btn-danger btn-sm" (click)="deleteEmployee(emp.eId)">Delete</button>
+          <button class="btn btn-danger" (click)="deleteEmployee(emp.eId)">Delete</button>
         </td>
       </tr>
     </tbody>
