@@ -14,6 +14,7 @@ import { EmployeeserviceassignmentComponent } from '../employeeserviceassignment
 import { Httpdemo1Component } from '../httpdemo1/httpdemo1.component';
 import { Httpdemo2Component } from '../httpdemo2/httpdemo2.component';
 import { UserComponent } from '../user/user.component';
+import { Observabledemo1Component } from '../observabledemo1/observabledemo1.component';
 
 @Component({
   selector: 'app-body',
@@ -31,9 +32,10 @@ import { UserComponent } from '../user/user.component';
     // Math2Component
     // EmployeeserviceassignmentComponent,
     // Httpdemo1Component
-    Httpdemo2Component,
-    UserComponent
-],
+    // Httpdemo2Component,
+    // UserComponent
+    Observabledemo1Component
+  ],
   templateUrl: './body.component.html',
   styleUrl: './body.component.css',
 })
