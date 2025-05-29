@@ -15,6 +15,8 @@ import { Httpdemo1Component } from '../httpdemo1/httpdemo1.component';
 import { Httpdemo2Component } from '../httpdemo2/httpdemo2.component';
 import { UserComponent } from '../user/user.component';
 import { Observabledemo1Component } from '../observabledemo1/observabledemo1.component';
+import { Observabledemo2Component } from '../observabledemo2/observabledemo2.component';
+import { Observabledemo3Component } from '../observabledemo3/observabledemo3.component';
 
 @Component({
   selector: 'app-body',
@@ -34,7 +36,9 @@ import { Observabledemo1Component } from '../observabledemo1/observabledemo1.com
     // Httpdemo1Component
     // Httpdemo2Component,
     // UserComponent
-    Observabledemo1Component
+    // Observabledemo1Component
+    Observabledemo2Component
+    // Observabledemo3Component
   ],
   templateUrl: './body.component.html',
   styleUrl: './body.component.css',
