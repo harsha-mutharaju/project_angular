@@ -14,8 +14,8 @@ export class Observabledemo2Component {
   }
 
   ngOnInit(){
-    this.forkjoin_demo();
-    this.mergemap_demo();
+   // this.forkjoin_demo();
+  //  this.mergemap_demo();
     this.concatmap_demo();
   }
 

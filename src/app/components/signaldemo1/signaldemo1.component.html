@@ -1,0 +1,28 @@
+<h3 class = "text-center"> lets learn signals</h3>
+<hr/>
+
+<div class="body m-2 p-2 border-2">
+
+    <div> count is {{cookieCount()}}</div>
+
+</div>
+
+
+<h2>Cookie recipe</h2>
+
+<label>
+  # of cookies:
+  <input
+    type="range"
+    min="10"
+    max="100"
+    step="10"
+    [value]="cookieCount()"
+    (input)="update($event)"
+  />
+  {{ cookieCount() }}
+</label>
+
+<p>Butter: {{ butter() }} cup(s)</p>
+<p>Sugar: {{ sugar() }} cup(s)</p>
+<p>Flour: {{ flour() }} cup(s)</p>

@@ -17,6 +17,12 @@ import { UserComponent } from '../user/user.component';
 import { Observabledemo1Component } from '../observabledemo1/observabledemo1.component';
 import { Observabledemo2Component } from '../observabledemo2/observabledemo2.component';
 import { Observabledemo3Component } from '../observabledemo3/observabledemo3.component';
+import { Message1Component } from '../message1/message1.component';
+import { Message2Component } from '../message2/message2.component';
+import { MessageaddComponent } from '../messageadd/messageadd.component';
+import { Subjectdemo1Component } from '../subjectdemo1/subjectdemo1.component';
+import { Signaldemo1Component } from '../signaldemo1/signaldemo1.component';
+import { Signaldemo2Component } from '../signaldemo2/signaldemo2.component';
 
 @Component({
   selector: 'app-body',
@@ -37,8 +43,10 @@ import { Observabledemo3Component } from '../observabledemo3/observabledemo3.com
     // Httpdemo2Component,
     // UserComponent
     // Observabledemo1Component
-    Observabledemo2Component
+    // Observabledemo2Component
     // Observabledemo3Component
+  Message1Component,Message2Component , MessageaddComponent, Subjectdemo1Component , Signaldemo1Component, Signaldemo2Component
+  
   ],
   templateUrl: './body.component.html',
   styleUrl: './body.component.css',
