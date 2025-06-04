@@ -1,0 +1,22 @@
+<h3>Assignment - create employee service with BehaviorSubject</h3>
+
+<div class="container">
+  <input type="text" [(ngModel)]="newEmployee.id" placeholder="id" />
+  <input type="text" [(ngModel)]="newEmployee.name" placeholder="name" />
+  <input type="text" [(ngModel)]="newEmployee.role" placeholder="role" />
+  <input type="text" [(ngModel)]="newEmployee.salary" placeholder="salary" />
+
+  <button class="btn btn-primary" (click)="addEmployee()">Add Employee</button>
+  <button class="btn btn-warning" (click)="clearEmployees()">Clear Employees</button>
+
+  <ul class="list-group">
+    <li class="list-group-item align-items-center"
+        *ngFor="let e of employeeObservable | async">
+      <span>
+        <strong>{{ e.id }}</strong> - {{ e.name }} - {{ e.role }} - ${{ e.salary }}
+      </span>
+      <button class="btn btn-outline-danger btn-sm" (click)="deleteEmployee(e.id)">Delete</button>
+    </li>
+  </ul>
+</div>
+

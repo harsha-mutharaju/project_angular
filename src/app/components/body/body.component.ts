@@ -23,6 +23,10 @@ import { MessageaddComponent } from '../messageadd/messageadd.component';
 import { Subjectdemo1Component } from '../subjectdemo1/subjectdemo1.component';
 import { Signaldemo1Component } from '../signaldemo1/signaldemo1.component';
 import { Signaldemo2Component } from '../signaldemo2/signaldemo2.component';
+import { EmployeesubjectComponent } from '../employeesubject/employeesubject.component';
+import { Formdemo1Component } from '../formdemo1/formdemo1.component';
+import { Formdemo2Component } from '../formdemo2/formdemo2.component';
+import { Formdemo3Component } from '../formdemo3/formdemo3.component';
 
 @Component({
   selector: 'app-body',
@@ -45,9 +49,18 @@ import { Signaldemo2Component } from '../signaldemo2/signaldemo2.component';
     // Observabledemo1Component
     // Observabledemo2Component
     // Observabledemo3Component
-  Message1Component,Message2Component , MessageaddComponent, Subjectdemo1Component , Signaldemo1Component, Signaldemo2Component
-  
-  ],
+    // Message1Component,
+    // Message2Component , 
+    // MessageaddComponent, 
+    // Subjectdemo1Component , 
+    // Signaldemo1Component, 
+    // Signaldemo2Component
+    // EmployeesubjectComponent
+    Formdemo1Component,
+    Formdemo2Component,
+    Formdemo3Component
+    // EmployeeserviceassignmentComponent
+],
   templateUrl: './body.component.html',
   styleUrl: './body.component.css',
 })
